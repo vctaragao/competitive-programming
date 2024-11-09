@@ -29,21 +29,20 @@ func main() {
 	solve(N, M, AS)
 }
 
+// TODO: SOLVE TLE
 func solve(N, M int, AS []int) {
 	countPairs := 0
 	for i := 0; i < N; i++ {
 		for j := 0; j < N; j++ {
-			fmt.Printf("checking pair (%d, %d)\n", i+1, j+1)
-			steps := 0
-			for k := i + 1; k <= j; k++ {
-				fmt.Println("checking for k", k)
-				steps += AS[k]
+			if j == i {
+				continue
 			}
 
-			fmt.Println("steps:", steps)
-
+			steps := AS[i]
+			for k := i + 1; j != k%N; k++ {
+				steps += AS[k%N]
+			}
 			if steps%M == 0 {
-				fmt.Println("Valid")
 				countPairs++
 			}
 		}

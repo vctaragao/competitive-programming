@@ -9,6 +9,10 @@ import (
 // 1. Base case: sum == target
 // 2. Rule 1 to put a value: value + sum < target
 
+// TODO:
+// Create a bench test between the loop implementation and the recursive two step one
+// https://leetcode.com/problems/combination-sum/solutions/5426168/video-simply-check-all-combinations/?envType=problem-list-v2&envId=backtracking
+
 func combinationSum(candidates []int, target int) [][]int {
 	return bt(0, candidates, target, []int{}, 0, [][]int{})
 }
